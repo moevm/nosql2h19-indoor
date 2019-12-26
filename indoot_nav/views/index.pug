@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    script
+        include ../public/javascripts/jquery-3.4.1.min.js
+    input(class='toto', type='button', value='import')
+    input(class='toto', type='button', value='export')
+    script.
+        var map
+        $.get("data/map.json", function () {
+        }).done(function (data) {
+            alert("Success");
+            map = data
+        }).fail(function (status) {
+            alert("fail" + status);
+        })
+        alert(map);
+    .wrapper
+        svg(viewBox="0 0 400 200")
+            //-for(var i = 0; rooms[i].floor != "2"; i++)
+            //path(class='part', d=rooms[i].d )
+        img(src="images/floor1.png", class="floor-poster")
+    div(class='description')
+        h1='Информация'
+        ul(class='info')
+    //script
+        //include ../public/javascripts/mainMenu.js
